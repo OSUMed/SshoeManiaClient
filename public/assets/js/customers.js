@@ -30,6 +30,10 @@ customer_form.addEventListener("submit", e => {
     })
 })
 
+function mainScreen(){
+    window.location.replace("/");
+  };
+
 search_button.addEventListener("click", event => {
     let searchValue = search_input.value;
     fetch("/?" + new URLSearchParams({ customer: searchValue })).then(res => res.json().then(data => {
