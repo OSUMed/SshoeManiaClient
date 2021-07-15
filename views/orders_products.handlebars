@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Sshoe Mania</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a id="customers" class="nav-link" aria-current="page" href="/">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a id="orders" class="nav-link" href="/orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a id="paymentMethods" class="nav-link" href="/paymentMethods">Payment Methods</a>
+                </li>
+                <li class="nav-item">
+                    <a id="products" class="nav-link" href="/products">Products</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="" style=" margin-left: 50px; margin-top: 50px;">
+    <h1>Orders Products</h1>
+    <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new order into the database, <b>delete</b>
+        a order from the database, and <b>select all</b> orders.</p>
+    <table>
+        <tr>
+            <td>
+                <div class="row justify-content-center">
+                    <form class="" action="index.html" method="post" autocomplete="off">
+                        <div class="form-group">
+                            <legend>Insert Order_Payments</legend>
+                            <label>Order Id</label>
+                            <input type="text" name="Order Id" class="form-control" value="" placeholder="Enter Order Id Here..." size="40" id="order_id">
+                        </div>
+                        <div class="form-group">
+                            <label>Product Id</label>
+                            <input type="text" name="Product Id" class="form-control" value=""
+                                placeholder="Enter Product Id Here..." id="product_Id">
+                        </div>
+                </div>
+                <br>
+                <div class="form-group" "form-action-buttons">
+                    <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+                </div>
+                <br>
+                <div class="form-group" "form-action-buttons">
+                    <button type="button" class="btn btn-primary" name="View All" id="button1">View All Orders
+                        Products</button>
+                </div>
+                </form>
+</div>
+</td>
+<td>
+    <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 100px;">
+        <thead>
+            <tr>
+                <th>id#</th>
+                <th>Order Id</th>
+                <th>Product Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
+                    <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
+                    <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
+                    <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </table>
+</td>
+</tr>
+</table>
+<div class="row justify-content-center">
+</div> <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        {{!-- <div class="searchbar">
+          <input class="search_input" type="text" name=""  size="28" placeholder="Search Orders Products Database...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div> --}}
+      </div>
+    </div>

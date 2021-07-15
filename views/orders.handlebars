@@ -1,0 +1,137 @@
+<!-- Here is our navbar: -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Sshoe Mania</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="customers" class="nav-link" aria-current="page" href="/">Customers</a>
+        </li>
+        <li class="nav-item">
+          <a id="orders" class="nav-link active" href="/orders">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a id="paymentMethods" class="nav-link" href="/paymentMethods">Payment Methods</a>
+        </li>
+        <li class="nav-item">
+          <a id="products" class="nav-link" href="/products">Products</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- This is our Title and Header: -->
+<h1 class="title">Orders</h1>
+<p class="title">This section allows you to <b>insert</b> a new order into the database, <b>delete</b>
+  a order from the database, and <b>select all</b> orders.</p>
+
+  <hr>
+
+  <p class="title"  style="margin: 20px"> <b>Note</b>: Please create an Order for the Customer with the a Payment Method and the total price of the complete Order. In the second form, find Order that was just created and add a Product. If customer is purchasing multiple products, repeat the second form by picking the same order and then picking the relavent product. Repeat as needed. </p>
+
+
+<!-- Our Orders form where the user inputs data: -->
+<form class="title" id="orders_form" action="index.html" method="post" autocomplete="off">
+<div class="padding_forms">
+  <div class="mb-3" >
+    <legend>Create New Order</legend>
+    <label>Order Date</label>
+    <input type="date" required="required" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" id="order_date">
+  </div>
+  <div class="mb-3">
+    <label>Total Price</label>
+    <input type="number" step=".01" min = "0" required="required" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
+  </div>
+  <br>
+
+  <select id="customer-dropdown">
+    <option selected disabled>Customer</option>
+    {{#each customers}}
+      <option value={{this.customer_id}} class="dropdown-item" href="#">{{this.customer_name}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <br>
+
+  <select id="payment-dropdown">
+    <option selected disabled>Payment</option>
+    <option  class="dropdown-item" href="#">NULL</option>
+    {{#each payments}}
+      <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
+    {{/each}}
+
+  </select>
+
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+</div>
+
+</form>
+
+<form class="title" id="orders_products_form" class="" action="index.html" method="post" autocomplete="off">
+<div class="padding_forms">
+  <div class="mb-3">
+    <legend>Add a Product!</legend>
+  </div>
+
+  <select id="order-dropdown">
+    <option selected disabled>Order</option>
+    {{#each orders}}
+      <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Customer Name</strong>: {{this.customer_name}} <strong>Order Date</strong>: {{this.order_date}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <br>
+  <select id="product-dropdown">
+    <option selected disabled>Product</option>
+    {{#each products}}
+      <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
+    {{/each}}
+  </select>
+
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+
+</div>
+
+</form>
+
+
+
+<!-- Here our table gets populated by the data from our database. The update
+and delete button ideas are from lecture. Using a onclick method and also Using
+a href link to populate a new page with the current record's data to update -->
+<!-- https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 -->
+
+<table class="table table-hover" id="orders_table">
+
+  <tr>
+    <th>Order Id #</th>
+    <th>Customer Name</th>
+    <th>Product Name</th>
+    <th>Order Date</th>
+    <th>Payment Method</th>
+    <th>Total Price</th>
+    <th> </th>
+  </tr>
+
+  {{#each ordersTable}}
+    <tr>
+      <td class="table-data">{{order_id}}</td>
+      <td class="table-data">{{customer_name}}</td>
+      <td class="table-data">{{product_name}}</td>
+      <td class="table-data">{{order_date}}</td>
+      <td class="table-data">{{payment_type}}</td>
+      <td class="table-data">{{price_total}}</td>
+      <td><button class="btn btn-danger"  onclick=deleteorder({{order_product_id}})>Delete</button></td>
+    </tr>
+  {{/each}}
+
+</table>

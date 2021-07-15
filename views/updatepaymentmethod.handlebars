@@ -1,0 +1,42 @@
+<!-- Sources for Update and Delete functions: 340 Introduction to Databases Class 
+Lectures: Week 8: Learn using JavaScript and NodeJS. College: Oregon State
+University:
+https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
+
+
+Update button: After watching lecture, I adapted the technique in my style: I
+used the same style of sending it to a href link of that same page but with
+/:id. Then I did a similar technique where we populate the link with the record
+values already so the User knows what the values are as they update that record.
+Again the button will be a onclick that calls a function with a parameter of the
+id of that record object derived from handlebars. That function is inside
+an ajax call which does a basic PUT operation call and then returns the
+user back to the original page where the user first pressed update
+when the PUT operation is complete. The PUT operation will go to
+the apiRoutes function router.put(/the page)
+https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 -->
+
+
+<form id ="update_payment">
+  <div class="form-group">
+    <h1>Update {{credit_card_name}}</h1>
+    <label>Payment Type</label>
+    <input type="text" required="required" name="payment_type" class="form-control" value="{{payment_type}}"  size="40" id="payment_type">
+  </div>
+  <div class="form-group">
+    <label>Credit Name</label>
+    <input type="text" required="required" name="credit_card_name" class="form-control" value="{{credit_card_name}}"  id="credit_card_name">
+  </div>
+  <div class="form-group">
+    <label>Credit Number</label>
+    <input  type="number" required="required" name="credit_card_number" class="form-control" value="{{credit_card_number}}"  id="credit_card_number">
+  </div>
+  <div class="form-group">
+    <label>Credit Card Expiraton Date</label>
+    <input  type="date" required="required" name="credit_card_exp_date" class="form-control" value="{{credit_card_exp_date}}"  id="credit_card_exp_date">
+  </div>
+  <br>
+  <div>
+    <button onclick=updatepaymentMethod1({{payment_method_id}})>Update</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+#orders_products_form, #orders_form {
+    border: 1px solid black;
+    margin: 25px;
+    width: 65%;
+}
+
+#orders_table{
+    margin: 25px;
+    width: 65%;
+    border: 3px solid black;
+    text-align: center;
+}
+
+.padding_forms {
+  padding: 20px;
+}
+
+.title {
+    margin: 25px;
+    width: 65%;
+}

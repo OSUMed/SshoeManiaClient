@@ -1,0 +1,38 @@
+<!-- Sources for Update and Delete functions: 340 Introduction to Databases Class
+Lectures: Week 8: Learn using JavaScript and NodeJS. College: Oregon State
+University:
+https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
+
+
+Update button: After watching lecture, I adapted the technique in my style: I
+used the same style of sending it to a href link of that same page but with
+/:id. Then I did a similar technique where we populate the link with the record
+values already so the User knows what the values are as they update that record.
+Again the button will be a onclick that calls a function with a parameter of the
+id of that record object derived from handlebars. That function is inside
+an ajax call which does a basic PUT operation call and then returns the
+user back to the original page where the user first pressed update
+when the PUT operation is complete. The PUT operation will go to
+the apiRoutes function router.put(/the page)
+https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 -->
+
+
+<form id ="update_customer">
+  <div class="form-group" class="mb-3">
+    <h1>Update {{customer_name}}</h1>
+    <label>Customer Name</label>
+    <input type="text" required="required" name="customer_name" class="form-control" value="{{customer_name}}"  size="40" id="customer_name">
+  </div>
+  <div class="form-group" class="mb-3">
+    <label>Customer Email</label>
+    <input type="email" name="customer_email" class="form-control" value="{{customer_email}}"  id="customer_email">
+  </div>
+  <div class="form-group" class="mb-3">
+    <label>Customer Phone Number</label>
+    <input  type="number" name="customer_phone" class="form-control" value="{{customer_phone}}"  id="customer_phone">
+  </div>
+  <br>
+  <div>
+    <button onclick=updateCustomer({{customer_id}})>Update</button>
+  </div>
+</form>
