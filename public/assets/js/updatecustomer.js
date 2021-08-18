@@ -19,12 +19,6 @@ function updateCustomer(id){
     data: $('#update_customer').serialize(),
     success: function(result){
       window.location.reload();
-      window.location.replace("/")
     },
-    error: function(){
-      window.location.reload();
-      window.location.replace("/")
-      console.log('Failed to update payment.');
-    }
   })
 };
