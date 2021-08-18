@@ -19,6 +19,9 @@ function updatepaymentMethod1(id){
     data: $('#update_payment').serialize(),
     success: function(result){
       window.location.replace("/paymentMethods");
+    },
+    error: function(){
+      alert('Failed to update payment.');
     }
   })
 };
