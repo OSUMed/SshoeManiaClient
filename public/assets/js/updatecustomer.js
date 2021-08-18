@@ -18,13 +18,13 @@ function updateCustomer(id){
     type: 'PUT',
     data: $('#update_customer').serialize(),
     success: function(result){
-    window.location.assign("https://sshoemania.herokuapp.com/"),
-    window.location.replace("https://sshoemania.herokuapp.com/"),
-    window.location.href = "https://sshoemania.herokuapp.com/",
-    window.location.href="https://sshoemania.herokuapp.com/",
-    window.location.assign("/"),
-    window.location.replace("/"),
-    window.location.href = "/",
+    // window.location.assign("https://sshoemania.herokuapp.com/"),
+    // window.location.replace("https://sshoemania.herokuapp.com/"),
+    // window.location.href = "https://sshoemania.herokuapp.com/",
+    // window.location.href="https://sshoemania.herokuapp.com/",
+    // window.location.assign("/"),
+    // window.location.replace("/"),
+    // window.location.href = "/",
     window.location.href="/"
     },
   })
