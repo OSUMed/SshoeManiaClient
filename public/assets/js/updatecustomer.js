@@ -24,7 +24,7 @@ function updateCustomer(id){
     error: function(){
       window.location.reload();
       window.location.replace("/")
-      alert('Failed to update payment.');
+      console.log('Failed to update payment.');
     }
   })
 };
