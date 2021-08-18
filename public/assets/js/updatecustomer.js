@@ -18,7 +18,7 @@ function updateCustomer(id){
     type: 'PUT',
     data: $('#update_customer').serialize(),
     success: function(result){
-      window.location.replace("https://sshoemania.herokuapp.com/");
+      window.location.assign("https://sshoemania.herokuapp.com/");
     },
   })
 };
