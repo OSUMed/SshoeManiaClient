@@ -20,6 +20,8 @@ function updateProduct(id){
       data: $('#update_product').serialize(),
       success: function(result){
         window.location.replace("/products");
+        window.location.reload();
+        window.location.replace("/products")
       },
       error: function(){
         alert('Failed to update payment.');
