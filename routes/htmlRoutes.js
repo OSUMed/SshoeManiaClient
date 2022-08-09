@@ -206,20 +206,15 @@ router.get("/products", (req, res) => {
 // user data. The user needs to see what they are updating so we write these
 // queries for them. Idea is taken from lecture:
 
-// Sources for Update supplement page idea: 340 Introduction to Databases Class
-// Lectures: Week 8: Learn using JavaScript and NodeJS. College: Oregon State
-// University:
-// https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
-
 router.get("/paymentMethods/:id", (req, res) => {
-  let inserts = req.params.id;
+  let insert_id = req.params.id;
   let sqlQuery = "SELECT * FROM Payment_Methods WHERE payment_method_id = ?";
-  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+  mysql.pool.query(sqlQuery, [insert_id], (err, result) => {
     if (err) {
       console.log(err);
     }
     else {
-      // We return just the first index value because we only want the first record data:
+      // Return idx 0 that has first record data:
       let paymentMethod = result[0]
       console.log("result here: ", result)
       res.render("updatepaymentmethod", paymentMethod)
@@ -228,9 +223,9 @@ router.get("/paymentMethods/:id", (req, res) => {
 });
 
 router.get("/customers/:id", (req, res) => {
-  let customerId = req.params.id;
+  let insert_id = req.params.id;
   let sqlQuery = "SELECT * FROM Customers WHERE customer_id = ?";
-  mysql.pool.query(sqlQuery, [customerId], (err, result) => {
+  mysql.pool.query(sqlQuery, [insert_id], (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -242,9 +237,9 @@ router.get("/customers/:id", (req, res) => {
 });
 
 router.get("/products/:id", (req, res) => {
-  let customerId = req.params.id;
+  let insert_id = req.params.id;
   let sqlQuery = "SELECT * FROM Products WHERE product_id = ?";
-  mysql.pool.query(sqlQuery, [customerId], (err, result) => {
+  mysql.pool.query(sqlQuery, [insert_id], (err, result) => {
     if (err) {
       console.log(err);
     }
