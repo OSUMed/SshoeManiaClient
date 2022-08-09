@@ -110,27 +110,8 @@ router.get("/paymentMethods/:id", (req, res) => {
     })
 });
 
-// Sources for Update and Delete functions: 340 Introduction to Databases Class
-// Lectures: Week 8: Learn using JavaScript and NodeJS. College: Oregon State
-// University:
-// https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
-//
-//
-// Update button: After watching lecture, I adapted the technique in my style: I
-// used the same style of sending it to a href link of that same page but with
-// /:id. Then I did a similar technique where we populate the link with the record
-// values already so the User knows what the values are as they update that record.
-// Again the button will be a onclick that calls a function with a parameter of the
-// id of that record object derived from handlebars. That function is inside
-// an ajax call which does a basic PUT operation call and then returns the
-// user back to the original page where the user first pressed update
-// when the PUT operation is complete. The PUT operation will go to
-// the apiRoutes function router.put(/the page)
-// https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
-
-
-// Here we put the table data from our update-payment method table into our databse:
 router.put("/paymentMethods/:id", (req, res) => {
+    // Create Query with placeholders and then create placeholder array:
     let sqlQuery = "UPDATE Payment_Methods SET payment_type = ?, credit_card_name = ?, credit_card_number = ?, credit_card_exp_date = ? WHERE payment_method_id = ?";
     let insert = [req.body.payment_type, req.body.credit_card_name, req.body.credit_card_number, req.body.credit_card_exp_date, req.params.id];
 
@@ -176,18 +157,12 @@ router.put("/products/:id", (req, res) => {
     })
 });
 
-// Delete button: From lecture I learned this strategy: I created a onclick
-// button which on click, turned on a function with a parameter that is the
-// grabbed id of the object through handlebars. This onclick button then takes
-// us to the ajax call which calls a DELETE method. This gets sent to the
-// apiRoutes where the Router.delete picks it up from that url.
-//https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
-
-
 // Here we delete the record from our order table:
 router.delete("/orders/:order_product_id", (req, res) => {
-  let inserts = [req.params.order_product_id];
+
+  // Create Query with placeholders and then placeholder array:
   let sqlQuery = "DELETE FROM Orders_Products WHERE order_product_id= ?"
+  let inserts = [req.params.order_product_id];
   mysql.pool.query(sqlQuery, inserts, (err, result) => {
     if (err) {
       console.log(err);
@@ -199,8 +174,9 @@ router.delete("/orders/:order_product_id", (req, res) => {
 
 // Here we delete the record from our payment method table:
 router.delete("/paymentMethods/:payment_method_id", (req, res) => {
-  let inserts = req.params.payment_method_id;
+  // Create Query with placeholders and then placeholder array:
   let sqlQuery = "DELETE FROM Payment_Methods WHERE payment_method_id = ?"
+  let inserts = req.params.payment_method_id;
   mysql.pool.query(sqlQuery, [inserts], (err, result) => {
     if (err) {
       console.log(err);
